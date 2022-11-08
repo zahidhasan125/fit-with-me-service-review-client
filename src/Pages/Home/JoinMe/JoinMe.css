@@ -1,0 +1,11 @@
+.offer{
+    font-size: 60px;
+    font-weight: 700;
+    background-color: rgba(230, 216, 28, 0.5);
+    border-radius: 20px;
+    width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    color: rgb(134, 43, 15);
+    font-style: italic;
+}

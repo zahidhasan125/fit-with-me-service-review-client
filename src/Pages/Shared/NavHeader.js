@@ -15,12 +15,12 @@ const NavHeader = () => {
                             style={{ maxHeight: '120px' }}
                             navbarScroll
                         >
-                            <Link to="/"><button type="button" class="btn btn-light">Home</button></Link>
-                            <Link to="/services"><button type="button" class="btn btn-light">Services</button></Link>
-                            <Link to="/blogs"><button type="button" class="btn btn-light">Blogs</button></Link>
-                            <Link to=""><button type="button" class="btn btn-light">Contact Us</button></Link>
-                            <Link to="/login"><button type="button" class="btn btn-light">Login</button></Link>
-                            <Link to="/signup"><button type="button" class="btn btn-light">Sign Up</button></Link>
+                            <Link to="/"><button type="button" className="btn btn-light fw-bold">Home</button></Link>
+                            <Link to="/allservices"><button type="button" className="btn btn-light fw-bold">Services</button></Link>
+                            <Link to="/blogs"><button type="button" className="btn btn-light fw-bold">Blogs</button></Link>
+                            <Link to=""><button type="button" className="btn btn-light fw-bold">Contact Me</button></Link>
+                            <Link to="/login"><button type="button" className="btn btn-light fw-bold">Login</button></Link>
+                            <Link to="/signup"><button type="button" className="btn btn-light fw-bold">Sign Up</button></Link>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control

@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
     const { _id, serviceName, img, price, details } = service;
     return (
         <div className="col-4">
-            <Card>
+            <Card className='mb-4'>
                 <div className='img-thumbnail border-0 d-block mx-auto'>
                     <Card.Img variant="top" src={img} />
                 </div>

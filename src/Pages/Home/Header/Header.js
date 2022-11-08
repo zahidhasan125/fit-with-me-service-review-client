@@ -16,7 +16,7 @@ const Header = () => {
                         <h1 className='big-text fw-bold my-4 w-50'>DON’T STOP TILL YOU DROP!</h1>
 
                     </Card.Title>
-                    <Card.Text className='ms-4 w-50 position-absolute bottom-0'>
+                    <Card.Text className='ms-4 w-50 position-absolute bottom-0 mb-4'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nisi modi excepturi necessitatibus eos aliquam quasi reprehenderit voluptatem fugiat ducimus, odio dolor incidunt voluptate doloribus temporibus amet dolores mollitia cum.
                     </Card.Text>
                 </Card.ImgOverlay>
