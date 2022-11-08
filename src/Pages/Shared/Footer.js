@@ -7,7 +7,7 @@ const Footer = () => {
         <div>
             <Card className="text-center border-0">
                 <Card.Body>
-                    <Card.Text>
+                    <div>
                         <div className='d-flex justify-content-around align-items-center'>
                             <div>
                                 LOGO
@@ -35,7 +35,7 @@ const Footer = () => {
                                 <FaInstagram className='ms-2'></FaInstagram>
                             </div>
                         </div>
-                    </Card.Text>
+                    </div>
                 </Card.Body>
                 <Card.Footer className="text-muted">© 2022 Company, Inc</Card.Footer>
             </Card>

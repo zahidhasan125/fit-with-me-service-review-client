@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const NavHeader = () => {
+    const { user, logout } = useContext(AuthContext);
+    const handleLogout = () => {
+        logout()
+            .then(result => { })
+            .catch(err => { })
+    }
     return (
         <div className='container my-3'>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                <Link to="/" className='text-decoration-none'><Navbar.Brand>FITNESS GYM</Navbar.Brand></Link>
+                    <Link to="/" className='text-decoration-none'><Navbar.Brand>FITNESS GYM</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -15,12 +22,22 @@ const NavHeader = () => {
                             style={{ maxHeight: '120px' }}
                             navbarScroll
                         >
-                            <Link to="/"><button type="button" className="btn btn-light fw-bold">Home</button></Link>
-                            <Link to="/allservices"><button type="button" className="btn btn-light fw-bold">Services</button></Link>
-                            <Link to="/blogs"><button type="button" className="btn btn-light fw-bold">Blogs</button></Link>
-                            <Link to=""><button type="button" className="btn btn-light fw-bold">Contact Me</button></Link>
-                            <Link to="/login"><button type="button" className="btn btn-light fw-bold">Login</button></Link>
-                            <Link to="/signup"><button type="button" className="btn btn-light fw-bold">Sign Up</button></Link>
+                            <Link to="/"><button type="button" className="btn btn-light rounded-pill fw-bold">Home</button></Link>
+                            <Link to="/allservices"><button type="button" className="btn btn-light rounded-pill fw-bold">Services</button></Link>
+                            <Link to="/blogs"><button type="button" className="btn btn-light rounded-pill fw-bold">Blogs</button></Link>
+                            <Link to=""><button type="button" className="btn btn-light rounded-pill fw-bold">Contact Me</button></Link>
+                            {
+                                user ?
+                                    <>
+                                        <Link to="/myreviews"><button type="button" className="btn btn-light rounded-pill fw-bold">My Reviews</button></Link>
+                                        <Button onClick={handleLogout} type="button" variant="outline-danger" className="btn btn-sm rounded-pill fw-bold ms-2">Log Out</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to="/login"><button type="button" className="btn btn-light rounded-pill fw-bold">Login</button></Link>
+                                        <Link to="/signup"><button type="button" className="btn btn-light rounded-pill fw-bold">Sign Up</button></Link>
+                                    </>
+                            }
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control
