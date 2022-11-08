@@ -14,7 +14,7 @@ const NavHeader = () => {
         <div className='container my-3'>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Link to="/" className='text-decoration-none'><Navbar.Brand>FITNESS GYM</Navbar.Brand></Link>
+                    <Link to="/" className='text-decoration-none'><Navbar.Brand>DREAM GYM</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -30,6 +30,7 @@ const NavHeader = () => {
                                 user ?
                                     <>
                                         <Link to="/myreviews"><button type="button" className="btn btn-light rounded-pill fw-bold">My Reviews</button></Link>
+                                        <Link to="/addservice"><button type="button" className="btn btn-light rounded-pill fw-bold">Add Service</button></Link>
                                         <Button onClick={handleLogout} type="button" variant="outline-danger" className="btn btn-sm rounded-pill fw-bold ms-2">Log Out</Button>
                                     </>
                                     :

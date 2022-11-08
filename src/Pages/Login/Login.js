@@ -1,12 +1,22 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, ButtonGroup, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import './Login.css'
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const { login, loginWithProvider } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.currentTarget;
@@ -14,6 +24,25 @@ const Login = () => {
         const password = form.password.value;
 
         login(email, password)
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true });
+                console.log(user);
+            })
+            .catch(err => console.error(err))
+    }
+
+    const handleGoogleSignIn = () => {
+        loginWithProvider(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(err => console.error(err))
+    }
+
+    const handleGithubSignIn = () => {
+        loginWithProvider(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -37,8 +66,10 @@ const Login = () => {
                     LOGIN
                 </Button>
             </Form>
-            <Button variant="outline-success" className='rounded-pill px-4 fw-bold w-100 mt-4'>LOGIN with <FaGoogle className='ms-2 fs-3'></FaGoogle>OOGLE</Button>
-            <Button variant="outline-secondary" className='rounded-pill px-4 fw-bold w-100 mt-4'>LOGIN with <FaGithub className='mx-2 fs-3'></FaGithub> GITHUB</Button>
+            <ButtonGroup className='w-100 rounded-pill mt-4'>
+                <Button onClick={handleGoogleSignIn} variant="outline-success" className='px-4 fw-bold rounded-pill rounded-end'>LOGIN with <FaGoogle className='ms-2 fs-3'></FaGoogle>OOGLE</Button>
+                <Button onClick={handleGithubSignIn} variant="outline-secondary" className='px-4 fw-bold rounded-pill rounded-start '>LOGIN with <FaGithub className='mx-2 fs-3'></FaGithub> GITHUB</Button>
+            </ButtonGroup>
         </div>
     );
 };
