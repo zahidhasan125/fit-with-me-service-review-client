@@ -15,11 +15,34 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-@media screen and (min-width: 480px) {
-    .big-text{
+.big-text {
+    font-size: 25px;
+    position: absolute;
+    width: 50%;
+
+}
+
+.header-title {
+    font-size: 16px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .big-text {
         font-size: 80px;
         margin-top: 40px;
         position: absolute;
-        
+        width: 50%;
     }
-  }
+
+    
+}
+
+@media (min-width: 768px) {
+    .w-md-50 {
+        width: 50% !important;
+    }
+    .header-title {
+        font-size: 30px !important;
+    }
+}

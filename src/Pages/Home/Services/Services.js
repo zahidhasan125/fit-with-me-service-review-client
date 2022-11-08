@@ -25,7 +25,7 @@ const Services = () => {
                 }
             </div>
             <div className='my-3'>
-            <Link to="/allservices"><Button variant="outline-warning" className='rounded-pill text-success fw-bold btn-lg w-25 mx-auto'>View All<FaLongArrowAltRight className='ms-2'></FaLongArrowAltRight></Button></Link>
+                <Link to="/allservices" className='text-decoration-none'><Button variant="outline-warning" className='rounded-pill text-success fw-bold btn-lg w-lg-25 d-block mx-auto'>View All<FaLongArrowAltRight className='ms-2'></FaLongArrowAltRight></Button></Link>
             </div>
         </div>
     );

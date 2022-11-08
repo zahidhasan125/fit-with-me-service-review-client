@@ -13,7 +13,7 @@ const Footer = () => {
                                 LOGO
                             </div>
                             <div>
-                                <Nav>
+                                <Nav className='flex-md-row flex-column'>
                                     <Nav.Item>
                                         <Nav.Link>Home</Nav.Link>
                                     </Nav.Item>
@@ -28,7 +28,7 @@ const Footer = () => {
                                     </Nav.Item>
                                 </Nav>
                             </div>
-                            <div className='d-flex justify-content-around align-items-center'>
+                            <div className='d-flex justify-content-around align-items-center flex-md-row flex-column'>
                                 <p>Follow us on:</p>
                                 <FaFacebookSquare className='ms-2'></FaFacebookSquare>
                                 <FaTwitter className='ms-2'></FaTwitter>

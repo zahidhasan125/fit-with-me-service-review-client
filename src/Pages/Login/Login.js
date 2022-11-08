@@ -50,7 +50,7 @@ const Login = () => {
             .catch(err => console.error(err))
     }
     return (
-        <div className='container login-form w-50'>
+        <div className='container login-form w-md-50 '>
             <h1 className='text-center fw-bold fs-1'>Login</h1>
             <Form onSubmit={handleLogin} className='mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -67,7 +67,7 @@ const Login = () => {
                 </Button>
             </Form>
             <ButtonGroup className='w-100 rounded-pill mt-4'>
-                <Button onClick={handleGoogleSignIn} variant="outline-success" className='px-4 fw-bold rounded-pill rounded-end'>LOGIN with <FaGoogle className='ms-2 fs-3'></FaGoogle>OOGLE</Button>
+                <Button onClick={handleGoogleSignIn} variant="outline-success" className='px-4 fw-bold rounded-pill rounded-end'>LOGIN with <FaGoogle className='ms-2 fs-3 '></FaGoogle><span className='d-sm-none'>G</span>OOGLE</Button>
                 <Button onClick={handleGithubSignIn} variant="outline-secondary" className='px-4 fw-bold rounded-pill rounded-start '>LOGIN with <FaGithub className='mx-2 fs-3'></FaGithub> GITHUB</Button>
             </ButtonGroup>
         </div>
