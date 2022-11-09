@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../contexts/AuthProvider';
 import MyReviewItem from './MyReviewItem';
 
@@ -17,25 +18,21 @@ const MyReviews = () => {
             })
     }, [userEmail])
 
-    const handleDeleteReview = (id) => {
-
-        const proceed = window.confirm("Are you sure to Delete this Review?")
-        if (proceed) {
-            fetch(`http://localhost:5000/myreviews?reviewId=${id}`, {
-                method: "DELETE",
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                        const remainingReviews = myReviews.filter(rvw => rvw._id !== id)
-                        setMyReviews(remainingReviews);
-                    }
-                })
-        }
-
+    const removeForever = (id) => {
+        fetch(`http://localhost:5000/myreviews?reviewId=${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    const remaining = myReviews.filter(review => review._id !== id);
+                    setMyReviews(remaining);
+                    toast.success("Review Deleted Successfully")
+                }
+        })
     }
-
+    
     return (
         <div className='container'>
             <Helmet>
@@ -46,7 +43,7 @@ const MyReviews = () => {
                 myReviews.map(myReview => <MyReviewItem
                     key={myReview._id}
                     rviwItem={myReview}
-                    handleDeleteReview={handleDeleteReview}
+                    removeForever={removeForever}
                 ></MyReviewItem>)
             }
         </div>

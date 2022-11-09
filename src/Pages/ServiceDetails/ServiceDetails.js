@@ -37,6 +37,7 @@ const ServiceDetails = () => {
         const reviewItem = {
             serviceId,
             review,
+            serviceName,
             userEmail,
             userName,
             userImg
@@ -64,6 +65,7 @@ const ServiceDetails = () => {
     }
     return (
         <div className='container'>
+            {/* service details */}
             <div>
                 <Helmet>
                     <title>Service Details & Reviews - Fit With Me</title>
@@ -84,6 +86,7 @@ const ServiceDetails = () => {
                     </Card.Body>
                 </Card>
             </div>
+            {/* Add Review */}
             <div className='my-4'>
                 <h3 className='text-center fw-bold fs-3 my-4'>ADD REVIEWS</h3>
                 {
@@ -108,10 +111,17 @@ const ServiceDetails = () => {
                         <Link to="/login"><Button variant="primary" size="lg" className='w-50 d-block mx-auto fw-bold'>Login to Review</Button></Link>
                 }
                 <hr />
+                {/* All Reviews for this service */}
                 <div>
                     <h3 className='text-center fw-bold fs-3 my-4'>ALL REVIEWS</h3>
                     {
-                        reviews.map(rviwItem => <ReviewItem key={rviwItem._id} rviwItem={rviwItem}></ReviewItem>)
+                        reviews.length !== 0
+                            ?
+                            
+                                reviews.map(rviwItem => <ReviewItem key={rviwItem._id} rviwItem={rviwItem}></ReviewItem>)
+                            
+                            :
+                            <h3 className='text-center fw-bold fs-3 my-4'> No reviews were added. </h3>
                     }
                 </div>
             </div>

@@ -1,10 +1,23 @@
-import React from 'react';
-import { Button, ButtonGroup, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, ButtonGroup, Card, Modal } from 'react-bootstrap';
 import { FaEdit, FaTrashAlt, FaUserAlt } from 'react-icons/fa';
 
-const MyReviewItem = ({ rviwItem, handleDeleteReview }) => {
-    
-    const { _id, userName, userImg, review, date } = rviwItem;
+const MyReviewItem = ({ rviwItem, removeForever }) => {
+
+    const { _id, userName, serviceName, userImg, review, date } = rviwItem;
+
+    const [show, setShow] = useState(false);
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(true);
+    };
+
+    if (deleteConfirm) {
+        // handleDeleteConfirm(_id)
+        console.log(deleteConfirm)
+    }
 
     return (
         <div>
@@ -33,10 +46,11 @@ const MyReviewItem = ({ rviwItem, handleDeleteReview }) => {
                     <p>Reviewed at: {date}</p>
                 </Card.Header>
                 <Card.Body className=''>
-                    <div className='d-flex justify-content-end'>
+                    <div className='d-flex justify-content-between align-items-center my-2'>
+                        <h4 className='fw-bold'>Service Name: {serviceName}</h4>
                         <ButtonGroup>
-                            <Button variant="outline-warning"><FaEdit></FaEdit></Button>
-                            <Button onClick={() => handleDeleteReview(_id)} variant="outline-danger"><FaTrashAlt></FaTrashAlt></Button>
+                            <Button variant="outline-warning rounded-end rounded-pill"><FaEdit></FaEdit></Button>
+                            <Button onClick={handleShow} variant="outline-danger rounded-start rounded-pill"><FaTrashAlt></FaTrashAlt></Button>
                         </ButtonGroup>
                     </div>
                     <Card.Text>
@@ -45,6 +59,23 @@ const MyReviewItem = ({ rviwItem, handleDeleteReview }) => {
 
                 </Card.Body>
             </Card>
+            {/* Delete confirmation modal */}
+            <>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Are you sure to Delete this Review?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><strong>Preview:</strong> {review.slice(0, 80) + '...'}</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary rounded-pill" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="danger rounded-pill" onClick={()=>removeForever(_id)}>
+                            Delete <FaTrashAlt></FaTrashAlt>
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
         </div>
     );
 };
