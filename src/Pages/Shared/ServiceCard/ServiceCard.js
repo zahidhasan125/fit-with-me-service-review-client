@@ -18,7 +18,7 @@ const ServiceCard = ({ service }) => {
                     </div>
                 </PhotoProvider>
                 <Card.Body className='text-center mt-4'>
-                    <Card.Title className='fw-bolder fs-1'>{serviceName}</Card.Title>
+                    <Card.Title className='fw-bolder fs-1'>{serviceName.length >15 ? serviceName.slice(0,15)+'...' : serviceName}</Card.Title>
                     <Card.Text className='fw-bold fs-4'>
                         Price: ${price}
                     </Card.Text>
