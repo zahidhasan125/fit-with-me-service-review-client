@@ -10,28 +10,28 @@
 
 
 ### Features and Functionalities
-    - Login
-    - Sign Up
-    - Social Login & Sign Up
-    - Real Users Review For Every Service
-    - User Can Find His/Her Review in **My Reviews** Page, After Login
-    - User Can Delete His/Her Review
-    - User Can Edit His/Her Review
-    - New Service Can Be Added in **Add Service**
-    - All Data Will Store to MongoDB, & Will Be Displayed From Database
-    - Images of Services & Gallery Are Zoom-able on Click to The Image
+ - Login
+ - Sign Up
+ - Social Login & Sign Up
+ - Real Users Review For Every Service
+ - User Can Find His/Her Review in **My Reviews** Page, After Login
+ - User Can Delete His/Her Review
+ - User Can Edit His/Her Review
+ - New Service Can Be Added in **Add Service**
+ - All Data Will Store to MongoDB, & Will Be Displayed From Database
+ - Images of Services & Gallery Are Zoom-able on Click to The Image
 
 ### Technology Used For Client Site
-    - ReactJS
-    - React Router
-    - Bootstrap
-    - React Bootstrap
-    - Vanilla CSS
-    - Firebase
-    - React Helmet
-    - React Hot Toast
-    - React Icons
-    - React Photo View 
+ - ReactJS
+ - React Router
+ - Bootstrap
+ - React Bootstrap
+ - Vanilla CSS
+ - Firebase
+ - React Helmet
+ - React Hot Toast
+ - React Icons
+ - React Photo View 
 
 
 # Thanks For Watching
