@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { AuthContext } from '../contexts/AuthProvider';
 import ReviewItem from '../Pages/ReviewItem/ReviewItem';
 
@@ -18,6 +19,9 @@ const MyReviews = () => {
 
     return (
         <div className='container'>
+            <Helmet>
+                <title>My Reviews - Fit With Me</title>
+            </Helmet>
             <h2 className='text-center d-block fw-bold'>MY REVIEWS: {myReviews.length}</h2>
             {
                 myReviews.map(myReview=><ReviewItem key={myReview._id} rviwItem={myReview}></ReviewItem>)

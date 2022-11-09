@@ -1,9 +1,13 @@
 import React from 'react';
 import { Accordion, Table } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 
 const Blogs = () => {
     return (
         <div className='container'>
+            <Helmet>
+                <title>Blogs - Fit With Me</title>
+            </Helmet>
             <h2 className='text-center d-block mx-auto bg-warning fw-bold rounded-2 my-4 py-4'>Asked Questions & Answers</h2>
             <Accordion className='my-4 d-block w-md-50 mx-auto'>
                 <Accordion.Item eventKey="0">

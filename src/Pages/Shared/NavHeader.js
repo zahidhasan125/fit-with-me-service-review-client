@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import logo from '../../logo.png'
 
 const NavHeader = () => {
     const { user, logout } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const NavHeader = () => {
         <div className='container my-3'>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Link to="/" className='text-decoration-none'><Navbar.Brand>DREAM GYM</Navbar.Brand></Link>
+                    <Link to="/" className='text-decoration-none'><Navbar.Brand style={{position: 'relative'}}> <img src={logo} alt="" style={{width: "80px", position: "absolute", top: "-25px", left: "20px"}} /> FIT WITH ME</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -40,15 +41,9 @@ const NavHeader = () => {
                                     </>
                             }
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2 rounded-pill"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-warning" className='rounded-pill'>Search</Button>
-                        </Form>
+                        <Link to="/signup" className="d-flex text-decoration-none">
+                            <Button variant="outline-warning" className='rounded-pill'>JOIN NOW</Button>
+                        </Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

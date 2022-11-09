@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, FloatingLabel, Form } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -64,6 +65,9 @@ const ServiceDetails = () => {
     return (
         <div className='container'>
             <div>
+                <Helmet>
+                    <title>Service Details & Reviews - Fit With Me</title>
+                </Helmet>
                 <Card>
                     <div className='service-image d-block'>
                         <Card.Img variant="top" className='service-image' src={img} />
