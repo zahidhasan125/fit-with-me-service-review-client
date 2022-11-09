@@ -9,15 +9,15 @@ const ServiceCard = ({ service }) => {
     const { _id, serviceName, img, price, details } = service;
     return (
         <div className="col-lg-4">
-            <Card className='mb-4'>
+            <Card className='mb-4' style={{height: "auto"}}>
                 <PhotoProvider>
                     <div className='img-thumbnail border-0 d-block mx-auto'>
                         <PhotoView src={img}>
-                            <Card.Img variant="top" src={img} />
+                            <Card.Img variant="top" style={{height: "100px"}} src={img} />
                         </PhotoView>
                     </div>
                 </PhotoProvider>
-                <Card.Body className='text-center'>
+                <Card.Body className='text-center mt-4'>
                     <Card.Title className='fw-bolder fs-1'>{serviceName}</Card.Title>
                     <Card.Text className='fw-bold fs-4'>
                         Price: ${price}

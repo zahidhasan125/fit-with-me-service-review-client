@@ -6,18 +6,13 @@ const MyReviewItem = ({ rviwItem, removeForever }) => {
 
     const { _id, userName, serviceName, userImg, review, date } = rviwItem;
 
+    
     const [show, setShow] = useState(false);
-    const [deleteConfirm, setDeleteConfirm] = useState(false)
 
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true);
     };
-
-    if (deleteConfirm) {
-        // handleDeleteConfirm(_id)
-        console.log(deleteConfirm)
-    }
 
     return (
         <div>
@@ -70,7 +65,7 @@ const MyReviewItem = ({ rviwItem, removeForever }) => {
                         <Button variant="secondary rounded-pill" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="danger rounded-pill" onClick={()=>removeForever(_id)}>
+                        <Button variant="danger rounded-pill" onClick={() => removeForever(_id)}>
                             Delete <FaTrashAlt></FaTrashAlt>
                         </Button>
                     </Modal.Footer>

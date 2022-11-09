@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
-import { AuthContext } from '../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
 import MyReviewItem from './MyReviewItem';
 
 const MyReviews = () => {
