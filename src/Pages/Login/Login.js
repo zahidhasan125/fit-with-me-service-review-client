@@ -36,6 +36,7 @@ const Login = () => {
         loginWithProvider(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(err => console.error(err))
@@ -45,6 +46,7 @@ const Login = () => {
         loginWithProvider(githubProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(err => console.error(err))
@@ -55,12 +57,12 @@ const Login = () => {
             <Form onSubmit={handleLogin} className='mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" className='rounded-pill' />
+                    <Form.Control type="email" name='email' placeholder="Enter email" className='rounded-pill' required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" className='rounded-pill' />
+                    <Form.Control type="password" name='password' placeholder="Password" className='rounded-pill' required/>
                 </Form.Group>
                 <Button variant="primary" type="submit" className='rounded-pill px-4 py-2 fw-bold w-100 mt-4'>
                     LOGIN

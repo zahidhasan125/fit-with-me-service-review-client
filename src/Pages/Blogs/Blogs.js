@@ -116,7 +116,7 @@ const Blogs = () => {
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
                     <Accordion.Header>4. How does NodeJS handle multiple requests at the same time?</Accordion.Header>
-                    <Accordion.Body className='bg-danger text-white'>
+                    <Accordion.Body className='bg-dark text-white'>
                         <p>
                             NodeJS receives multiple client requests and places them into <strong className='text-decoration-underline'>EventQueue</strong>. NodeJS is built with the concept of event-driven architecture. NodeJS has its own <strong className='text-decoration-underline'>EventLoop</strong> which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue.
                         </p>

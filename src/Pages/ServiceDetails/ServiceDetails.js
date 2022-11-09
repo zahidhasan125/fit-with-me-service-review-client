@@ -3,38 +3,43 @@ import { Button, Card, FloatingLabel, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import ReviewItem from '../ReviewItem/ReviewItem';
 import './ServiceDetails.css'
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData()
     const { _id, serviceName, price, details, img, rating } = serviceDetails;
     const { user } = useContext(AuthContext);
+
     const userEmail = user?.email;
+    const userImg = user?.photoURL || "";
+    const userName = user?.displayName || "";
     const serviceId = _id;
 
+    // get reviews
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
 
             })
     }, [_id])
-    
-    console.log(reviews);
+
 
     const handleReviewSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const review = form.review.value;
-        const reviewItem = { serviceId, userEmail, review }
-
-        // // get reviews
-
-
-
+        const reviewItem = {
+            serviceId,
+            review,
+            userEmail,
+            userName,
+            userImg
+        }
 
         // review submit
         fetch('http://localhost:5000/submitreview', {
@@ -50,6 +55,8 @@ const ServiceDetails = () => {
                 if (data.acknowledged) {
                     toast.success("Review Submitted Successfully")
                     form.reset();
+                    const newReviews = [reviewItem, ...reviews];
+                    setReviews(newReviews);
                 }
             })
         console.log(reviewItem);
@@ -74,8 +81,7 @@ const ServiceDetails = () => {
                 </Card>
             </div>
             <div className='my-4'>
-                <h3 className='text-center fw-bold fs-3'>REVIEWS</h3>
-                <hr />
+                <h3 className='text-center fw-bold fs-3 my-4'>ADD REVIEWS</h3>
                 {
                     user ?
                         <>
@@ -97,6 +103,13 @@ const ServiceDetails = () => {
                         :
                         <Link to="/login"><Button variant="primary" size="lg" className='w-50 d-block mx-auto fw-bold'>Login to Review</Button></Link>
                 }
+                <hr />
+                <div>
+                    <h3 className='text-center fw-bold fs-3 my-4'>ALL REVIEWS</h3>
+                    {
+                        reviews.map(rviwItem => <ReviewItem key={rviwItem._id} rviwItem={rviwItem}></ReviewItem>)
+                    }
+                </div>
             </div>
         </div>
     );
