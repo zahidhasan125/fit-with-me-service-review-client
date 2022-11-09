@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../contexts/AuthProvider';
-import ReviewItem from '../Pages/ReviewItem/ReviewItem';
+import MyReviewItem from './MyReviewItem';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +17,25 @@ const MyReviews = () => {
             })
     }, [userEmail])
 
+    const handleDeleteReview = (id) => {
+
+        const proceed = window.confirm("Are you sure to Delete this Review?")
+        if (proceed) {
+            fetch(`http://localhost:5000/myreviews?reviewId=${id}`, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        const remainingReviews = myReviews.filter(rvw => rvw._id !== id)
+                        setMyReviews(remainingReviews);
+                    }
+                })
+        }
+
+    }
+
     return (
         <div className='container'>
             <Helmet>
@@ -24,7 +43,11 @@ const MyReviews = () => {
             </Helmet>
             <h2 className='text-center d-block fw-bold'>MY REVIEWS: {myReviews.length}</h2>
             {
-                myReviews.map(myReview=><ReviewItem key={myReview._id} rviwItem={myReview}></ReviewItem>)
+                myReviews.map(myReview => <MyReviewItem
+                    key={myReview._id}
+                    rviwItem={myReview}
+                    handleDeleteReview={handleDeleteReview}
+                ></MyReviewItem>)
             }
         </div>
     );

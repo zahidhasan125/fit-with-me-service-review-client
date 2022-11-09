@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <Spinner animation='border' variant='success'></Spinner>
+        return <div className='container text-center'><Spinner animation='border' variant='success'></Spinner></div>
     }
 
     if (!user) {
