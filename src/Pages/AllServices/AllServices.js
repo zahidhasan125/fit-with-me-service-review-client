@@ -5,7 +5,7 @@ import ServiceCard from '../Shared/ServiceCard/ServiceCard';
 const AllServices = () => {
     const [allServices, setAllServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://service-review-server-side-henna.vercel.app/allservices')
             .then(res => res.json())
             .then(data => {
                 setAllServices(data)

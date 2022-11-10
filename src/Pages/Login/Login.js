@@ -29,7 +29,7 @@ const Login = () => {
                 const user = result.user;
                 navigate(from, { replace: true });
                 const currentUser = { email: user.email };
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-henna.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -51,7 +51,7 @@ const Login = () => {
                 const user = result.user;
                 const currentUser = { email: user.email };
                 navigate(from, { replace: true });
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-henna.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -73,7 +73,7 @@ const Login = () => {
                 const user = result.user;
                 navigate(from, { replace: true });
                 const currentUser = { email: user.email };
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-henna.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

@@ -10,7 +10,7 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?userEmail=${userEmail}`, {
+        fetch(`https://service-review-server-side-henna.vercel.app/myreviews?userEmail=${userEmail}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('service-review-token')}`
             }
@@ -24,7 +24,7 @@ const MyReviews = () => {
     // delete review
 
     const removeForever = (id) => {
-        fetch(`http://localhost:5000/myreviews?reviewId=${id}`, {
+        fetch(`https://service-review-server-side-henna.vercel.app/myreviews?reviewId=${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('service-review-token')}`
@@ -42,13 +42,13 @@ const MyReviews = () => {
 
     const handleEditReview = (id, updatedReview) => {
         console.log(id, updatedReview);
-        fetch(`http://localhost:5000/myreviews/${id}`, {
+        fetch(`https://service-review-server-side-henna.vercel.app/myreviews/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('service-review-token')}`
             },
-            body: JSON.stringify({review: updatedReview})
+            body: JSON.stringify({ review: updatedReview })
         })
             .then(res => res.json())
             .then(data => {
@@ -56,7 +56,7 @@ const MyReviews = () => {
                 if (data.modifiedCount > 0) {
                     toast.success("Your Review Successfully Updated! Please Reload the page to see the changes!")
                 }
-        })
+            })
     }
 
     return (

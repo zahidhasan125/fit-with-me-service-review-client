@@ -22,7 +22,7 @@ const ServiceDetails = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://service-review-server-side-henna.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -47,7 +47,7 @@ const ServiceDetails = () => {
         }
 
         // review submit
-        fetch('http://localhost:5000/submitreview', {
+        fetch('https://service-review-server-side-henna.vercel.app/submitreview', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

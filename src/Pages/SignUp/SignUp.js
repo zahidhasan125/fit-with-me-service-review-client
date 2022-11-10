@@ -52,7 +52,7 @@ const SignUp = () => {
                 const user = result.user;
                 navigate(from, { replace: true });
                 const currentUser = { email: user.email };
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-henna.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -74,7 +74,7 @@ const SignUp = () => {
                 const user = result.user;
                 navigate(from, { replace: true });
                 const currentUser = { email: user.email };
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-henna.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

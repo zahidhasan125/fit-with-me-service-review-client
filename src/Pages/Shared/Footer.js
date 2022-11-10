@@ -12,7 +12,7 @@ const Footer = () => {
                     <div>
                         <div className='d-flex justify-content-around align-items-center'>
                             <div>
-                                <Link to="/"><img src={logo} alt="" style={{width: "80px"}}/></Link>
+                                <Link to="/"><img src={logo} alt="" style={{ width: "80px" }} /></Link>
                             </div>
                             <div>
                                 <Nav className='flex-md-row flex-column'>
@@ -26,7 +26,7 @@ const Footer = () => {
                                         <Link to="/allservices" className='text-decoration-none me-4'>Services</Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Link to="" className='text-decoration-none me-4'>Contact Me</Link>
+                                        <Link to="/contactme" className='text-decoration-none me-4'>Contact Me</Link>
                                     </Nav.Item>
                                 </Nav>
                             </div>

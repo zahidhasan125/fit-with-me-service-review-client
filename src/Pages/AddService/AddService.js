@@ -26,7 +26,7 @@ const AddService = () => {
             details
         }
 
-        fetch(`http://localhost:5000/addservice`, {
+        fetch(`https://service-review-server-side-henna.vercel.app/addservice`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
