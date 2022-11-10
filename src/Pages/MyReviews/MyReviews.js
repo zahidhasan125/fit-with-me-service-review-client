@@ -21,6 +21,8 @@ const MyReviews = () => {
             })
     }, [userEmail])
 
+    // delete review
+
     const removeForever = (id) => {
         fetch(`http://localhost:5000/myreviews?reviewId=${id}`, {
             method: "DELETE",
@@ -38,6 +40,25 @@ const MyReviews = () => {
             })
     }
 
+    const handleEditReview = (id, updatedReview) => {
+        console.log(id, updatedReview);
+        fetch(`http://localhost:5000/myreviews/${id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('service-review-token')}`
+            },
+            body: JSON.stringify({review: updatedReview})
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success("Your Review Successfully Updated! Please Reload the page to see the changes!")
+                }
+        })
+    }
+
     return (
         <div className='container'>
             <Helmet>
@@ -51,6 +72,7 @@ const MyReviews = () => {
                     key={myReview._id}
                     rviwItem={myReview}
                     removeForever={removeForever}
+                    handleEditReview={handleEditReview}
                 ></MyReviewItem>)
             }
         </div>
