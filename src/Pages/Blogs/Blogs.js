@@ -8,7 +8,9 @@ const Blogs = () => {
             <Helmet>
                 <title>Blogs - Fit With Me</title>
             </Helmet>
-            <h2 className='text-center d-block mx-auto bg-warning fw-bold rounded-2 my-4 py-4'>Asked Questions & Answers</h2>
+            <div className='bg-warning my-5 mx-auto w-md-50 py-2 text-center rounded-4'>
+                <h2 className='text-black fw-bold'>ASKED QUESTIONS & ANSWERS</h2>
+            </div>
             <Accordion className='my-4 d-block w-md-50 mx-auto'>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>1. Difference between SQL and NoSQL</Accordion.Header>
@@ -59,16 +61,18 @@ const Blogs = () => {
                         <p>
                             <strong>JWT: </strong>JSON Web Token(<strong>JWT</strong>), is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
                         </p>
-                        <p>
-                            <strong>How it works: </strong>
-                            Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.
+                        <div>
+                            <p>
+                                <strong>How it works: </strong>
+                                Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.
+                            </p>
                             <ol className=''>
                                 <li>User sign-in using username and password or google/facebook.</li>
                                 <li>Authentication server verifies the credentials and issues a jwt signed using either a secret salt or a private key.</li>
                                 <li>User's Client uses the JWT to access protected resources by passing the JWT in HTTP Authorization header.</li>
                                 <li>Resource server then verifies the authenticity of the token using the secret salt/ public key.</li>
                             </ol>
-                        </p>
+                        </div>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">

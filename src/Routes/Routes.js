@@ -4,6 +4,7 @@ import Main from '../layouts/Main/Main';
 import AddService from '../Pages/AddService/AddService';
 import AllServices from '../Pages/AllServices/AllServices';
 import Blogs from '../Pages/Blogs/Blogs';
+import ContactMe from '../Pages/ContactMe/ContactMe';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import MyReviews from '../Pages/MyReviews/MyReviews';
@@ -36,6 +37,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/contactme',
+                element: <ContactMe></ContactMe>
             },
             {
                 path: '/myreviews',

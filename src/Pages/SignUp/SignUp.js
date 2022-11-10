@@ -42,7 +42,6 @@ const SignUp = () => {
                         })
                         .catch(() => { })
                 }
-                console.log(user);
             })
             .catch(err => console.error(err))
     }
@@ -52,7 +51,19 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
-                console.log(user);
+                const currentUser = { email: user.email };
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('service-review-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(err => console.error(err))
     }
@@ -62,7 +73,19 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
-                console.log(user);
+                const currentUser = { email: user.email };
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('service-review-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(err => console.error(err))
     }
@@ -78,7 +101,9 @@ const SignUp = () => {
                     </>
                     :
                     <>
-                        <h1 className='text-center fw-bold fs-1'>Sign UP</h1>
+                        <div className='bg-warning my-5 py-2 text-center rounded-4'>
+                            <h2 className='text-black fw-bold'>SIGN UP</h2>
+                        </div>
                         <form onSubmit={handleRegister} className='mx-auto'>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>Full Name</Form.Label>

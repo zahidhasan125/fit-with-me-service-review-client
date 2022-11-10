@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, FloatingLabel, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import ReviewItem from '../ReviewItem/ReviewItem';
@@ -34,26 +35,28 @@ const ServiceDetails = () => {
         event.preventDefault();
         const form = event.target;
         const review = form.review.value;
+        const time = new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' });
         const reviewItem = {
             serviceId,
             review,
             serviceName,
             userEmail,
             userName,
-            userImg
+            userImg,
+            time
         }
 
         // review submit
         fetch('http://localhost:5000/submitreview', {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('service-review-token')}`
             },
             body: JSON.stringify(reviewItem)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success("Review Submitted Successfully")
                     form.reset();
@@ -61,7 +64,6 @@ const ServiceDetails = () => {
                     setReviews(newReviews);
                 }
             })
-        console.log(reviewItem);
     }
     return (
         <div className='container'>
@@ -71,9 +73,13 @@ const ServiceDetails = () => {
                     <title>Service Details & Reviews - Fit With Me</title>
                 </Helmet>
                 <Card>
-                    <div className='service-image d-block'>
-                        <Card.Img variant="top" className='service-image' src={img} />
-                    </div>
+                    <PhotoProvider>
+                        <div className='service-image d-block'>
+                            <PhotoView src={img}>
+                                <Card.Img variant="top" className='service-image' src={img} />
+                            </PhotoView>
+                        </div>
+                    </PhotoProvider>
                     <Card.Body className='text-center px-5'>
                         <Card.Title className='fs-1 fw-bolder text-decoration-underline'>{serviceName}</Card.Title>
                         <div className='d-flex align-items-center justify-content-around fw-bold'>
@@ -117,9 +123,9 @@ const ServiceDetails = () => {
                     {
                         reviews.length !== 0
                             ?
-                            
-                                reviews.map(rviwItem => <ReviewItem key={rviwItem._id} rviwItem={rviwItem}></ReviewItem>)
-                            
+
+                            reviews.map(rviwItem => <ReviewItem key={rviwItem._id} rviwItem={rviwItem}></ReviewItem>)
+
                             :
                             <h3 className='text-center fw-bold fs-3 my-4'> No reviews were added. </h3>
                     }

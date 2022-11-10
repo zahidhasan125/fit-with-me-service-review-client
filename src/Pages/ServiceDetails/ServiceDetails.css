@@ -1,5 +1,5 @@
 .service-image {    
-    width: 80px;
+    max-width: 400px;
     display: block;
     margin: 10px auto;
 }

@@ -9,17 +9,17 @@ const ServiceCard = ({ service }) => {
     const { _id, serviceName, img, price, details } = service;
     return (
         <div className="col-lg-4">
-            <Card className='mb-4' style={{height: "auto"}}>
+            <Card className='mb-4 bg-dark text-light' style={{height: ""}}>
                 <PhotoProvider>
-                    <div className='img-thumbnail border-0 d-block mx-auto'>
+                    <div className='img-thumbnail border-0 d-block mx-auto mt-4'>
                         <PhotoView src={img}>
-                            <Card.Img variant="top" style={{height: "100px"}} src={img} />
+                            <Card.Img variant="top bg-dark" style={{height: "150px"}} src={img} />
                         </PhotoView>
                     </div>
                 </PhotoProvider>
                 <Card.Body className='text-center mt-4'>
-                    <Card.Title className='fw-bolder fs-1'>{serviceName.length >15 ? serviceName.slice(0,15)+'...' : serviceName}</Card.Title>
-                    <Card.Text className='fw-bold fs-4'>
+                    <Card.Title className='fw-bolder fs-2'>{serviceName.length >20 ? serviceName.slice(0,20)+'...' : serviceName}</Card.Title>
+                    <Card.Text className='fw-bold fs-5'>
                         Price: ${price}
                     </Card.Text>
                     <Card.Text>

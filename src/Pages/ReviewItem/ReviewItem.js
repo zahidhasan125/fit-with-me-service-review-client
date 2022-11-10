@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import { FaUserAlt } from 'react-icons/fa';
 
 const ReviewItem = ({ rviwItem }) => {
-    const { userName, userImg, review, date } = rviwItem;
+    const { userName, userImg, review, time } = rviwItem;
     return (
         <div>
             <Card
@@ -28,7 +28,7 @@ const ReviewItem = ({ rviwItem }) => {
                                 <p style={{ margin: "0" }} className="ms-2 fw-bold">No Name</p>
                         }
                     </div>
-                    <p>Reviewed at: {date}</p>
+                    <p>Reviewed at: {time}</p>
                 </Card.Header>
                 <Card.Body className='text-center'>
                     <Card.Text>

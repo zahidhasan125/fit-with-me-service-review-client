@@ -11,13 +11,12 @@ const Services = () => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                setServices(data)
+                setServices(data);
             })
     }, [])
     return (
         <div>
-            <div className='bg-warning my-5 py-4 text-center rounded-4'>
+            <div className='bg-warning my-5 py-2 text-center rounded-4'>
                 <h2 className='text-black fw-bold'>My Popular Services</h2>
             </div>
             <div className='row my-3'>

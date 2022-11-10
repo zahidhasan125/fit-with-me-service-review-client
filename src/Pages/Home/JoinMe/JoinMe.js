@@ -6,10 +6,10 @@ import './JoinMe.css'
 const JoinMe = () => {
     return (
         <div className='my-4'>
-            <Card className="text-center bg-success">
+            <Card className="text-center bg-secondary bg-gradient">
                 <Card.Body>
-                    <Card.Title className='fw-bold fs-1 text-dark'>Join Today & Get The best</Card.Title>
-                    <Card.Text className='offer bg-dark text-info'>
+                    <Card.Title className='fw-bold fs-1 text-warning'>Join Today & Get The best</Card.Title>
+                    <Card.Text className='offer bg-dark bg-gradient text-info'>
                         50% OFF for First Month
                     </Card.Text>
                     <Button variant="warning rounded-pill fw-bold">JOIN NOW <FaLongArrowAltRight className='ms-2'></FaLongArrowAltRight></Button>

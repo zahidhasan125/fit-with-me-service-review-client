@@ -28,7 +28,19 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
-                console.log(user);
+                const currentUser = { email: user.email };
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('service-review-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(err => console.error(err))
     }
@@ -37,8 +49,20 @@ const Login = () => {
         loginWithProvider(googleProvider)
             .then(result => {
                 const user = result.user;
+                const currentUser = { email: user.email };
                 navigate(from, { replace: true });
-                console.log(user);
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('service-review-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(err => console.error(err))
     }
@@ -48,7 +72,19 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
-                console.log(user);
+                const currentUser = { email: user.email };
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('service-review-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(err => console.error(err))
     }
@@ -64,7 +100,9 @@ const Login = () => {
                         <Helmet>
                             <title>Login - Fit With Me</title>
                         </Helmet>
-                        <h1 className='text-center fw-bold fs-1'>Login</h1>
+                        <div className='bg-warning my-5 py-2 text-center rounded-4'>
+                            <h2 className='text-black fw-bold'>LOGIN</h2>
+                        </div>
                         <Form onSubmit={handleLogin} className='mx-auto'>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>

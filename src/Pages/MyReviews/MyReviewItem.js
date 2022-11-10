@@ -4,7 +4,7 @@ import { FaEdit, FaTrashAlt, FaUserAlt } from 'react-icons/fa';
 
 const MyReviewItem = ({ rviwItem, removeForever }) => {
 
-    const { _id, userName, serviceName, userImg, review, date } = rviwItem;
+    const { _id, userName, serviceName, userImg, review, time } = rviwItem;
 
     
     const [show, setShow] = useState(false);
@@ -38,12 +38,12 @@ const MyReviewItem = ({ rviwItem, removeForever }) => {
                                 <p style={{ margin: "0" }} className="ms-2 fw-bold">No Name</p>
                         }
                     </div>
-                    <p>Reviewed at: {date}</p>
+                    <p>Reviewed at: {time}</p>
                 </Card.Header>
                 <Card.Body className=''>
                     <div className='d-flex justify-content-between align-items-center my-2'>
                         <h4 className='fw-bold'>Service Name: {serviceName}</h4>
-                        <ButtonGroup>
+                        <ButtonGroup className='px-2 w-25'>
                             <Button variant="outline-warning rounded-end rounded-pill"><FaEdit></FaEdit></Button>
                             <Button onClick={handleShow} variant="outline-danger rounded-start rounded-pill"><FaTrashAlt></FaTrashAlt></Button>
                         </ButtonGroup>

@@ -20,6 +20,7 @@
  - New Service Can Be Added in **Add Service**
  - All Data Will Store to MongoDB, & Will Be Displayed From Database
  - Images of Services & Gallery Are Zoom-able on Click to The Image
+ - Mobile & Desktop Responsive
 
 ### Technology Used For Client Site
  - ReactJS

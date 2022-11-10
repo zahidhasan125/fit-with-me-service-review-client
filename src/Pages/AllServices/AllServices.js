@@ -11,14 +11,14 @@ const AllServices = () => {
                 setAllServices(data)
             })
     }, [])
-    console.log(allServices);
+
     return (
         <div className='container'>
             <Helmet>
                 <title>All Services - Fit With Me</title>
             </Helmet>
-            <div className='bg-warning my-5 py-4 text-center rounded-4'>
-                <h2 className='text-black fw-bold'>All My Services</h2>
+            <div className='bg-warning my-5 py-2 w-md-50 mx-auto text-center rounded-4'>
+                <h2 className='text-black fw-bold'>ALL MY SERVICES</h2>
             </div>
             <div className='row my-5'>
                 {
